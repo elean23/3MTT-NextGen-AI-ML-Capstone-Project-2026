@@ -1,0 +1,42 @@
+{
+  "version": "1.1",
+  "rows": 250000,
+  "fraud_rows": 1250,
+  "fraud_rate": 0.005,
+  "mean_amount_ngn": 9002.87,
+  "median_amount_ngn": 5000.0,
+  "duplicate_transaction_ids": 0,
+  "negative_amounts": 0,
+  "negative_sender_balances_after": 0,
+  "missing_values_in_ml_dataset": 0,
+  "successful_kyc_daily_limit_violations": 0,
+  "fraud_scenario_counts": {
+    "social_engineering": 328,
+    "account_takeover": 226,
+    "mule_activity": 194,
+    "sim_device_compromise": 177,
+    "rapid_cashout": 121,
+    "velocity_fraud": 106,
+    "dormant_wallet_takeover": 98
+  },
+  "legitimate_anomaly_rates": {
+    "new_device_rate": 0.0401,
+    "new_recipient_rate": 0.4154,
+    "unusual_hour_rate": 0.1755,
+    "amount_gt_3x_personal_avg_rate": 0.1103,
+    "high_velocity_5plus_1h_rate": 0.0041
+  },
+  "status_distribution": {
+    "successful": 0.9515,
+    "failed": 0.0434,
+    "reversed": 0.0051
+  },
+  "transaction_type_distribution": {
+    "P2P_TRANSFER": 0.2934,
+    "MERCHANT_PAYMENT": 0.2256,
+    "CASH_OUT": 0.132,
+    "AIRTIME_PURCHASE": 0.1177,
+    "CASH_IN": 0.1173,
+    "BILL_PAYMENT": 0.114
+  }
+}

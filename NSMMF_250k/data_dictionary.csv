@@ -1,0 +1,52 @@
+column,dtype,description,model_use
+transaction_id,object,Unique synthetic transaction identifier.,No
+timestamp,object,"Transaction date/time; retain for chronological splitting, not as a raw predictor.",Split/derive
+sender_id,object,Synthetic sender wallet identifier.,No
+receiver_id,object,"Synthetic receiver wallet, merchant, or agent identifier.",No
+agent_id,object,Agent identifier when an agent is involved.,No
+customer_profile,object,Hidden simulation archetype; excluded from ML inputs.,No
+transaction_type,object,"P2P transfer, merchant payment, airtime, cash-out, cash-in, or bill payment.",Yes
+amount,float64,Transaction amount in Nigerian naira.,Yes
+initiation_channel,object,"APP, USSD, or AGENT interface within the mobile-money ecosystem.",Yes
+status,object,"Successful, failed, or reversed; excluded from main pre-authorisation feature set.",No
+sender_balance_before,float64,Sender wallet balance immediately before processing.,Yes
+sender_balance_after,float64,Sender wallet balance after processing; excluded to reduce leakage risk.,No
+receiver_balance_before,float64,"Receiver wallet balance before transfer, when applicable.",No
+receiver_balance_after,float64,Receiver wallet balance after transfer; excluded from main ML dataset.,No
+sender_account_age_days,int32,Age of sender wallet/account in days.,Yes
+receiver_account_age_days,int32,Age of recipient wallet/account in days when applicable; zero for non-wallet receivers.,Yes
+kyc_level,int8,"Synthetic KYC tier 1, 2, or 3.",Yes
+sender_state,object,Synthetic Nigerian state associated with sender.,Yes
+receiver_state,object,Synthetic state associated with receiver/entity.,Yes
+transaction_state,object,Synthetic state where transaction is initiated.,Yes
+geo_zone,object,Sender geopolitical zone.,Yes
+urban_rural,object,Synthetic urban/semi-urban/rural classification.,Yes
+device_type,object,Smartphone or feature phone.,Yes
+is_new_device,int8,Whether transaction is made from a recently introduced device.,Yes
+days_on_current_device,int32,Synthetic age of current device relationship.,Yes
+sim_changed_last_7d,int8,Whether a simulated SIM change occurred in the prior seven days.,Yes
+location_changed,int8,Whether transaction state differs from sender state.,Yes
+hour,int8,Hour of day derived from timestamp.,Yes
+day_of_week,int8,Monday=0 through Sunday=6.,Yes
+is_weekend,int8,1 for Saturday/Sunday.,Yes
+transactions_last_1h,int16,Sender transaction count in the prior one hour.,Yes
+transactions_last_24h,int16,Sender transaction count in the prior 24 hours.,Yes
+amount_last_24h,float64,Sender transaction value attempted in prior 24 hours.,Yes
+avg_amount_30d,float64,Sender rolling prior-30-day average amount; baseline profile used before enough history exists.,Yes
+amount_deviation_ratio,float64,Current amount divided by sender historical average.,Yes
+time_since_last_tx_min,float64,Minutes since sender previous transaction.,Yes
+unique_recipients_24h,int16,Distinct sender recipients in prior 24 hours.,Yes
+is_new_recipient,int8,1 if sender has not previously interacted with the receiver in the simulation.,Yes
+days_since_last_activity,float64,"Days since prior sender activity, including pre-simulation inactivity baseline.",Yes
+cashout_amount_24h,float64,Sender cash-out value in prior 24 hours.,Yes
+prior_failed_attempts_24h,int16,Sender failed attempts in prior 24 hours.,Yes
+is_unusual_hour,int8,1 when transaction hour differs strongly from simulated sender preference.,Yes
+receiver_incoming_tx_24h,int16,Incoming transfer count to wallet receiver in prior 24 hours.,Yes
+receiver_unique_senders_24h,int16,Distinct senders to wallet receiver in prior 24 hours.,Yes
+minutes_since_recent_incoming,float64,Minutes since sender most recently received a P2P transfer; large sentinel when none.,Yes
+agent_transactions_today,int16,Agent transactions already observed that day.,Yes
+agent_cashout_today,float64,Agent cash-out value already observed that day.,Yes
+agent_unique_customers_today,int16,Unique customers already served by agent that day.,Yes
+is_fraud,int8,"Binary target: 1 synthetic fraud, 0 legitimate.",Target
+fraud_type,object,Synthetic fraud scenario; never use as predictor.,No
+fraud_event_id,object,Audit identifier for synthetic fraud event; never use as predictor.,No

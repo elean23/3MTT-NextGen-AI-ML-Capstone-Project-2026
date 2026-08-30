@@ -1,0 +1,59 @@
+{
+  "dataset_name": "NSMMF-250K \u2014 Nigerian Synthetic Mobile Money Fraud Dataset",
+  "version": "1.1",
+  "random_seed": 42,
+  "transactions": 250000,
+  "customers": 15000,
+  "agents": 1000,
+  "merchants": 2500,
+  "simulation_days": 90,
+  "start_date": "2025-01-01",
+  "target_fraud_rate": 0.005,
+  "fraud_mix_assumption": {
+    "social_engineering": 0.25,
+    "account_takeover": 0.2,
+    "sim_device_compromise": 0.15,
+    "mule_activity": 0.15,
+    "rapid_cashout": 0.1,
+    "velocity_fraud": 0.075,
+    "dormant_wallet_takeover": 0.075
+  },
+  "customer_profile_mix_assumption": {
+    "occasional": 0.25,
+    "everyday": 0.4,
+    "trader_business": 0.15,
+    "cash_heavy": 0.15,
+    "high_value": 0.05
+  },
+  "kyc_population_mix_assumption": {
+    "1": 0.55,
+    "2": 0.35,
+    "3": 0.1
+  },
+  "kyc_daily_outflow_limits_ngn": {
+    "1": 50000,
+    "2": 200000,
+    "3": 5000000
+  },
+  "transaction_types": [
+    "P2P_TRANSFER",
+    "MERCHANT_PAYMENT",
+    "AIRTIME_PURCHASE",
+    "CASH_OUT",
+    "CASH_IN",
+    "BILL_PAYMENT"
+  ],
+  "design_notes": [
+    "Synthetic data only; not real NIBSS or customer transaction data.",
+    "Fraud prevalence, population mix, geography weights, transaction mix, timing and fraud injection are simulation assumptions unless separately sourced in the project methodology.",
+    "nsmmf_ml.csv excludes post-transaction values, IDs, hidden customer archetypes, status and fraud-scenario metadata.",
+    "History-derived behavioural features are calculated using prior transactions only."
+  ],
+  "refinements": [
+    "Recurring wallet/merchant/agent counterparty pools added to reduce unrealistic new-recipient rates.",
+    "Opening wallet liquidity increased to reduce artificial insufficient-funds failures.",
+    "Non-airtime amount distributions rescaled toward the CBN-calibrated overall mean target.",
+    "Legitimate trader/cash-heavy velocity bursts injected to create overlap with fraud behaviour.",
+    "Unusual-hour threshold loosened to reduce over-labelling routine transactions."
+  ]
+}
