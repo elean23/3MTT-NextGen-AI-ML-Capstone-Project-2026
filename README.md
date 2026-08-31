@@ -23,13 +23,13 @@ The notebook uses two synthetic mobile-money datasets:
 
 ### 1. **PaySim**
 A public synthetic dataset of ~6.3M mobile-money transactions with an extreme class imbalance (~0.13% fraud). Fraud is concentrated almost entirely in `TRANSFER` and `CASH_OUT` transaction types.
-> [Kaggle dataset](https://www.kaggle.com/datasets/ealaxi/paysim1)  
+> [PaySim Kaggle dataset](https://www.kaggle.com/datasets/ealaxi/paysim1)  
 > Kaggle handle: `ealaxi/paysim1`
 
 ### 2. NSMMF_fraud_Dataset
 A custom-generated synthetic dataset built specifically for the Nigerian context: 250,000 transactions, 15,000 wallets, 1,000 agents, 2,500 merchants, across 36 states + FCT over 90 simulated days, with a fixed 0.5% fraud rate spread across seven fraud scenarios (social engineering, account takeover, SIM/device compromise, mule activity, rapid cash-out, velocity fraud, dormant-wallet takeover). Transactions were generated chronologically per customer rather than sampled independently, with behavioural features calculated from prior history only. This was intended to improve temporal and behavioural consistency, although subsequent ablation analysis identified strong synthetic relationships in some features, particularly `is_new_recipient`.
 
-> [Kaggle dataset](https://www.kaggle.com/datasets/elenwai/nsmmf-synthetic-fraud-dataset)
+> [ NSMMF_fraud_Dataset Kaggle dataset](https://www.kaggle.com/datasets/elenwai/nsmmf-synthetic-fraud-dataset)
 > Kaggle handle: `elenwai/nsmmf-synthetic-fraud-dataset`
 
 The two datasets are **modelled separately** throughout this project; their rows are never concatenated, since they differ in schema, scale, and fraud mechanics.
