@@ -1,4 +1,7 @@
-data/*.csv
+
+NSMMF_250k/nsmmf_full.csv
+NSMMF_250k/nsmmf_ml.csv
+NSMMF_250k/nsmmf_unlabelled.csv
 *.pkl
 *.joblib
 __pycache__/
