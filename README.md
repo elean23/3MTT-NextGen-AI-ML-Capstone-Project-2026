@@ -1,4 +1,6 @@
 # 3MTT Capstone Mobile Money Fraud Detector (MVP)
+---
+---
 
 An intelligent system for detecting suspicious mobile money transactions, built as part of the 3MTT program. The project trains and evaluates fraud-detection models on two datasets: **PaySim** (a widely used public synthetic mobile-money dataset) and **NSMMF-250K**, a custom-built synthetic dataset simulating Nigerian mobile-money behaviour.
 
